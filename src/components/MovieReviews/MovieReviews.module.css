@@ -1,0 +1,12 @@
+.absence {
+  margin-top: 15px;
+  font-style: italic;
+  color: red;
+}
+
+.container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

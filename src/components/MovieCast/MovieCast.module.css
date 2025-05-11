@@ -1,0 +1,13 @@
+.container {
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.movieFoto {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+}

@@ -1,0 +1,33 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.sbmButton {
+  background-color: transparent;
+  color: darkred;
+  border: 2px solid darkred;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sbmButton:hover {
+  background-color: #dc3545;
+  color: beige;
+}
+
+.searchInput {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid darkred;
+  background: transparent;
+  color: black;
+  border-radius: 5px;
+}
+.searchInput:focus {
+  background: lightcyan;
+  color: darkblue;
+}
