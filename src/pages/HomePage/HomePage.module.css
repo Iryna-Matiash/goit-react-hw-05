@@ -1,0 +1,29 @@
+.container {
+    padding: 30px 40px;
+    font-family: Arial, sans-serif;
+}
+
+.heading {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.list {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.list li {
+    margin-bottom: 8px;
+}
+
+.list li a {
+    color: #1a0dab;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.list li a:hover {
+    text-decoration: underline;
+}

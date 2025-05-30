@@ -76,41 +76,76 @@
 // }
 
 
-import { useState } from 'react';
+// import { useState } from 'react';
+// import { useSearchParams } from 'react-router-dom';
+// import tmdb from '../../services/tmdbAPI';
+// import MovieList from '../../components/MovieList/MovieList';
+
+// function MoviesPage() {
+//   const [searchParams, setSearchParams] = useSearchParams();
+//   const query = searchParams.get('query') || '';
+//   const [movies, setMovies] = useState([]);
+
+//   const handleSearch = async (e) => {
+//     e.preventDefault();
+//     const form = e.currentTarget;
+//     const searchQuery = form.elements.query.value;
+//     setSearchParams({ query: searchQuery });
+
+//     try {
+//       const response = await tmdb.get('/search/movie', {
+//         params: { query: searchQuery },
+//       });
+//       setMovies(response.data.results);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <form onSubmit={handleSearch}>
+//         <input name="query" defaultValue={query} />
+//         <button type="submit">Пошук</button>
+//       </form>
+//       <MovieList movies={movies} />
+//     </div>
+//   );
+// }
+
+// export default MoviesPage;
+
 import { useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
 import tmdb from '../../services/tmdbAPI';
 import MovieList from '../../components/MovieList/MovieList';
+import styles from './MoviesPage.module.css';
 
-function MoviesPage() {
+const MoviesPage = () => {
+  const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') || '';
-  const [movies, setMovies] = useState([]);
 
-  const handleSearch = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-    const searchQuery = form.elements.query.value;
+    const searchQuery = form.elements.query.value.trim();
+    if (!searchQuery) return;
     setSearchParams({ query: searchQuery });
 
-    try {
-      const response = await tmdb.get('/search/movie', {
-        params: { query: searchQuery },
-      });
-      setMovies(response.data.results);
-    } catch (error) {
-      console.error(error);
-    }
+    const res = await tmdb.get('/search/movie', { params: { query: searchQuery } });
+    setMovies(res.data.results);
   };
 
   return (
-    <div>
-      <form onSubmit={handleSearch}>
-        <input name="query" defaultValue={query} />
-        <button type="submit">Пошук</button>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.searchForm}>
+        <input name="query" defaultValue={query} className={styles.searchInput} />
+        <button type="submit" className={styles.searchButton}>Search</button>
       </form>
       <MovieList movies={movies} />
     </div>
   );
-}
+};
 
 export default MoviesPage;

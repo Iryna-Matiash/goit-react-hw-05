@@ -1,4 +1,4 @@
-.header {
+/* .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,4 +33,30 @@
   color: #007bff;
   font-weight: 600;
   border-bottom: 2px solid #007bff;
+} */
+
+
+
+
+
+.header {
+  background-color: #fafafa;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.navLink {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+
+.navLink.active {
+  color: #e53935;
+  font-weight: bold;
 }

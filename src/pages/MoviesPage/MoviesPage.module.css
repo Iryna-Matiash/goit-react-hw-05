@@ -1,4 +1,4 @@
-.form {
+/* .form {
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -30,4 +30,108 @@
 .searchInput:focus {
   background: lightcyan;
   color: darkblue;
+} */
+
+
+
+
+/* .container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fafafa;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.navLink {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+
+.navLink.active {
+  color: #e53935;
+  /* червоний */
+  /* font-weight: bold;
+}
+
+.searchForm {
+  display: flex;
+  margin: 20px 0;
+}
+
+.searchInput {
+  padding: 8px;
+  font-size: 16px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+.searchButton {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  background-color: #ddd;
+}
+
+.movieList {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.movieList li a {
+  text-decoration: none;
+  color: #1a0dab;
+} */
+
+
+
+
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.searchForm {
+  display: flex;
+  margin: 20px 0;
+}
+
+.searchInput {
+  padding: 8px;
+  font-size: 16px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+.searchButton {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  background-color: #ddd;
 }

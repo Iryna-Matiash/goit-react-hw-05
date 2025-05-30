@@ -27,15 +27,35 @@
 //   );
 // }
 
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
-function Navigation() {
+// function Navigation() {
+//   return (
+//     <nav>
+//       <NavLink to="/">Home</NavLink>
+//       <NavLink to="/movies">Movies</NavLink>
+//     </nav>
+//   );
+// }
+
+// export default Navigation;
+
+import { NavLink } from 'react-router-dom';
+import styles from './Navigation.module.css';
+
+const Navigation = () => {
   return (
-    <nav>
-      <NavLink to="/">Головна</NavLink>
-      <NavLink to="/movies">Пошук фільмів</NavLink>
-    </nav>
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <NavLink to="/" className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+          Home
+        </NavLink>
+        <NavLink to="/movies" className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+          Movies
+        </NavLink>
+      </nav>
+    </header>
   );
-}
+};
 
 export default Navigation;
