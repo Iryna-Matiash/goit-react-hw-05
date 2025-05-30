@@ -1,7 +1,5 @@
-
-
 import { useSearchParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import tmdb from '../../services/tmdbAPI';
 import MovieList from '../../components/MovieList/MovieList';
 import styles from './MoviesPage.module.css';
@@ -11,15 +9,27 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') || '';
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const searchQuery = form.elements.query.value.trim();
-    if (!searchQuery) return;
-    setSearchParams({ query: searchQuery });
+  useEffect(() => {
+    if (!query) return;
 
-    const res = await tmdb.get('/search/movie', { params: { query: searchQuery } });
-    setMovies(res.data.results);
+    async function fetchMovies() {
+      try {
+        const response = await tmdb.get('/search/movie', {
+          params: { query },
+        });
+        setMovies(response.data.results);
+      } catch (error) {
+        console.error('Помилка при завантаженні фільмів:', error);
+      }
+    }
+
+    fetchMovies();
+  }, [query]);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const value = e.target.elements.query.value.trim();
+    if (value) setSearchParams({ query: value });
   };
 
   return (
@@ -28,9 +38,11 @@ const MoviesPage = () => {
         <input name="query" defaultValue={query} className={styles.searchInput} />
         <button type="submit" className={styles.searchButton}>Search</button>
       </form>
-      <MovieList movies={movies} />
+
+      <MovieList movies={movies} listClass={styles.list} />
     </div>
   );
 };
 
 export default MoviesPage;
+
